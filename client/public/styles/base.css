@@ -1,0 +1,41 @@
+body {
+	background: rgb(252, 248, 248);
+}
+
+.cont {
+	background-color: rgb(250, 251, 251);
+}
+
+.header {
+	background-image: url('../images/img1.jpg');
+	background-size: contain;
+	width: 100%;
+	height: 100px;
+	z-index: -2;
+	opacity: 0.65;
+}
+
+.header img {
+	height: 50px;
+	margin-top: 0.2rem;
+}
+
+a {
+	text-decoration: none; /* no underline */
+	color: white;
+}
+
+.selected {
+	color: greenyellow;
+}
+
+.textinput {
+	background-color: rgb(253, 250, 250);
+}
+.materials {
+	margin-top: 20px;
+}
+
+.minhtcont {
+	min-height: 70vh;
+}
