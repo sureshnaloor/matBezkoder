@@ -9,21 +9,22 @@ import {
 
 const Footer = () => {
 	return (
-		<div className='footer'>
-			<AppBar position='sticky' style={{ background: 'rgb(150,230,240)' }}>
-				<Container maxWidth='md'>
+		<div className="footer">
+			<AppBar position="sticky" style={{ background: 'rgb(150,230,240)' }}>
+				<Container maxWidth="md">
 					<Toolbar>
 						<Grid container>
 							<Grid item xs={6} md={6}>
 								{' '}
-								<Typography variant='body2' color='secondary'>
+								<Typography variant="body2" color="secondary">
 									&copy; 2020 JAL International Co Ltd
 								</Typography>
 							</Grid>
 							<Grid item xs={6} md={6}>
-								<Typography variant='caption' color='textPrimary'>
-									Designed and developed in MERN Stack by Suresh Naloor, data
-									offline SAP.
+								<Typography variant="caption" color="textPrimary">
+									Designed and developed by Suresh Naloor, data offline SAP.
+									<br />
+									Open source Stack used: MongoDB, React, Node JS
 								</Typography>
 							</Grid>
 						</Grid>

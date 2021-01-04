@@ -1,6 +1,6 @@
 module.exports = (mongoose) => {
 	const Material = mongoose.model(
-		'materialsList',
+		'materials',
 		mongoose.Schema(
 			{
 				'material-code': { type: String, required: true, unique: true },
@@ -13,7 +13,7 @@ module.exports = (mongoose) => {
 				'long-matdescription': String,
 				'created-date': Date,
 				'created-by': String,
-				'changed-date': String,
+				'changed-date': Date,
 				'changed-by': String,
 				'close-flag': String,
 				'mat-type': String,
@@ -22,7 +22,7 @@ module.exports = (mongoose) => {
 			},
 			{ timestamps: true }
 		),
-		'materialsList'
+		'materials'
 	);
 	return Material;
 };
