@@ -172,7 +172,7 @@ const MaterialsList = ({
 					) : (
 						<div>
 							<br />
-							<p>Please click on a Tutorial...</p>
+							<p>Please click on a Material to get its details...</p>
 						</div>
 					)}
 				</Grid>
