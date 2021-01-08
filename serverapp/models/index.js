@@ -9,5 +9,6 @@ db.url = mongoURL;
 
 db.materials = require('./materials.model')(mongoose);
 db.materialGroups = require('./materialGroups.model')(mongoose);
+db.projects = require('./projects.model')(mongoose);
 
 module.exports = db;

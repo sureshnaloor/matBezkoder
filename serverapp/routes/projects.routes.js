@@ -12,4 +12,7 @@ router.get('/test', async (req, res) => {
 	}
 });
 
+// Retrieve all projects
+router.get('/', projects.findAll);
+
 module.exports = router;
