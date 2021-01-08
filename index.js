@@ -29,6 +29,7 @@ db.mongoose
 
 app.use('/api/materials', require('./serverapp/routes/materials.routes'));
 app.use('/api/matgroups', require('./serverapp/routes/materialGroups.routes'));
+app.use('/api/projects', require('./serverapp/routes/projects.routes'));
 
 const port = process.env.PORT || 5000;
 
