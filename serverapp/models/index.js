@@ -10,5 +10,11 @@ db.url = mongoURL;
 db.materials = require('./materials.model')(mongoose);
 db.materialGroups = require('./materialGroups.model')(mongoose);
 db.projects = require('./projects.model')(mongoose);
+db.purchaseorders = require('./purchaseOrders.model')(mongoose);
+db.vendors = require('./vendors.model')(mongoose);
+db.specialstock = require('./specialstock.model')(mongoose);
+db.completestock = require('./completestock.model')(mongoose);
+db.materialdocuments = require('./materialdocuments.model')(mongoose);
+db.networks = require('./networks.model')(mongoose);
 
 module.exports = db;
