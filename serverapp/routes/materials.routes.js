@@ -25,10 +25,10 @@ router.get('/mg/:matgroup', materials.findbyGroup);
 // Retrieve a single Material with id
 router.get('/:id', materials.findOne);
 
-// Update a Tutorial with id
+// Update a materiall with id
 router.put('/:id', upload.single('prodImage'), materials.update);
 
-// Delete a Tutorial with id
+// Delete a material with id
 router.delete('/:id', materials.delete);
 
 module.exports = router;
