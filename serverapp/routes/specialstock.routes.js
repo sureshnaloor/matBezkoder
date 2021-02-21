@@ -12,7 +12,7 @@ router.get('/test', async (req, res) => {
 	}
 });
 
-// Retrieve all projects
-router.get('/', specialstock.findAll);
+// Retrieve all stock whose value is > 1
+router.get('/', specialstock.findEach);
 
 module.exports = router;

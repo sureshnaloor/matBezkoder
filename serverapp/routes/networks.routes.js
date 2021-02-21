@@ -12,7 +12,10 @@ router.get('/test', async (req, res) => {
 	}
 });
 
-// Retrieve all projects
+// Retrieve all networks
 router.get('/', networks.findAll);
+
+//retrieve a single network
+router.get('/:id', networks.findOne )
 
 module.exports = router;
