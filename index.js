@@ -30,6 +30,11 @@ db.mongoose
 app.use('/api/materials', require('./serverapp/routes/materials.routes'));
 app.use('/api/matgroups', require('./serverapp/routes/materialGroups.routes'));
 app.use('/api/projects', require('./serverapp/routes/projects.routes'));
+app.use('/api/vendors', require('./serverapp/routes/vendors.routes'));
+app.use('/api/networks', require('./serverapp/routes/networks.routes'))
+app.use('/api/purchases', require('./serverapp/routes/purchaseorders.routes'))
+app.use('/api/completestock', require('./serverapp/routes/completestock.routes'))
+app.use('/api/specialstock', require('./serverapp/routes/specialstock.routes'))
 
 const port = process.env.PORT || 5000;
 

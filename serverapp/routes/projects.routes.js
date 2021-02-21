@@ -15,4 +15,6 @@ router.get('/test', async (req, res) => {
 // Retrieve all projects
 router.get('/', projects.findAll);
 
+router.get('/:id', projects.findOne);
+
 module.exports = router;

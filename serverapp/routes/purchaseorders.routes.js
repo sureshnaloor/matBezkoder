@@ -15,4 +15,7 @@ router.get('/test', async (req, res) => {
 // Retrieve all purchaseorders
 router.get('/', purchaseorders.findAll);
 
+// single purchase order
+router.get('/:id', purchaseorders.findOne)
+
 module.exports = router;

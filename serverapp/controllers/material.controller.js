@@ -63,6 +63,7 @@ exports.create = (req, res, next) => {
 
 //retrieve all materials from database, if description search box is filled in search by description
 exports.findAll = (req, res) => {
+	
 	const description = req.query.description;
 
 	const noRec = 100;
