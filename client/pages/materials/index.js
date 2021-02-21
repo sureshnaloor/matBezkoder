@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 import MatDataService from '../../services/MaterialService';
 import MatgroupDataServices from '../../services/MaterialGroups';
-import MaterialsList from '../../components/materials/MaterialsList';
 
+import MaterialsList from '../../components/materials/MaterialsList';
 import MaterialgroupList from '../../components/materials/MaterialgroupList';
 
 const Materials = () => {
@@ -26,6 +26,7 @@ const Materials = () => {
 		console.log(searchDescription);
 	};
 
+	// below snippet should be changed to async await for consistency
 	const findByDescription = () => {
 		MatDataService.findByDescription(searchDescription)
 			.then((response) => {
