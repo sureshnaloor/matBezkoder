@@ -35,6 +35,7 @@ app.use('/api/networks', require('./serverapp/routes/networks.routes'))
 app.use('/api/purchases', require('./serverapp/routes/purchaseorders.routes'))
 app.use('/api/completestock', require('./serverapp/routes/completestock.routes'))
 app.use('/api/specialstock', require('./serverapp/routes/specialstock.routes'))
+app.use('/api/materialdocs', require('./serverapp/routes/materialdocuments.routes'))
 
 const port = process.env.PORT || 5000;
 

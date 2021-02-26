@@ -3,7 +3,7 @@ module.exports = (mongoose) => {
 		'materialdocuments',
 		mongoose.Schema(
 			{
-				'material-cde': { type: String },
+				'material-code': { type: String },
 				'plant-code': { type: String, required: true },
 				'sloc': {type: String},
 				'mvt-type': {type: String},
