@@ -12,7 +12,16 @@ router.get('/test', async (req, res) => {
 	}
 });
 
-// Retrieve all projects
-router.get('/', materialdocuments.findAll);
+// Retrieve a single doc by id
+router.get('/matdoc/:id', materialdocuments.findOne);
+
+// Retrieve material documents by mat code (or) material text - mvt type 101 only
+router.get('/material', materialdocuments.findByMat)
+
+// Retrieve material documents by mat code and movement type all
+router.get('/material/all', materialdocuments.findByMatAll)
+
+// Retreive all material documents for a given account assignment/cost element - sale order, network, wbs or cost center
+router.get('/accounts', materialdocuments.findByAccount)
 
 module.exports = router;
