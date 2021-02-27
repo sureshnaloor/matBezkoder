@@ -84,11 +84,23 @@ const NavBar = () => {
 							<Grid item xs={2} md={2}>
 								<ListItem>
 									<ListItemText inset>
+										<Shop fontSize='small' color='secondary' />
+										<Typography variant='button'>
+											<Link href='/transactions'>
+												<a>Transactions</a>
+											</Link>
+										</Typography>
+									</ListItemText>
+								</ListItem>
+							</Grid>
+							{/* <Grid item xs={2} md={2}>
+								<ListItem>
+									<ListItemText inset>
 										<img src='https://img.icons8.com/material/24/000000/login-rounded--v1.png' />
 										<Typography variant='button'>Login</Typography>
 									</ListItemText>
 								</ListItem>
-							</Grid>
+							</Grid> */}
 						</List>
 					</Grid>
 				</Toolbar>

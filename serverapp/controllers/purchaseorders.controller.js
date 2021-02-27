@@ -18,7 +18,7 @@ exports.findOne = (req, res) => {
 		});
 };
 
-// retireve all purchase orders search by matcode or descrption
+// retireve all purchase orders search by matcode or description
 exports.findAll = (req, res) => {
 	const noRec = 100;
 	const description = req.query.description;
@@ -107,7 +107,7 @@ exports.findByVendor = (req, res) => {
 		});
 };
 
-// search by vendor- code or name
+// search by date- code or name
 
 exports.findByDate = (req, res) => {
 	const noRec = 100;

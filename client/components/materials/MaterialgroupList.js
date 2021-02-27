@@ -31,15 +31,20 @@ const useStyles = makeStyles((theme) => ({
 		fontSize: '0.7rem',
 		fontStyle: 'bold',
 	},
+
+	borderstyle: {
+		padding: '20px',
+	},
 }));
 
 const MaterialgroupList = ({ matgroups, matgroupSelected, handleChange }) => {
 	const classes = useStyles();
 	return (
-		<div>
+		<div className={classes.borderstyle}>
 			<InputLabel id='select-label' className={classes.label}>
 				Material Group:
 			</InputLabel>
+			<br />
 
 			<Select
 				className={classes.select}

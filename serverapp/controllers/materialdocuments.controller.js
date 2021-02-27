@@ -1,7 +1,7 @@
 const db = require('../models');
 const Materialdocuments = db.materialdocuments;
 
-// retireve single material
+// retireve single material doc
 exports.findOne = (req, res) => {
 	const id = req.params.id;
 

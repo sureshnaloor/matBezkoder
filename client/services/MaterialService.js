@@ -17,7 +17,7 @@ const get = (id) => {
 };
 
 const create = (data) => {
-	return http.post('/tutorials', data);
+	return http.post('/materials', data);
 };
 
 const update = (id, data) => {
@@ -25,7 +25,7 @@ const update = (id, data) => {
 };
 
 const remove = (id) => {
-	return http.delete(`/tutorials/${id}`);
+	return http.delete(`/materials/${id}`);
 };
 
 export default {

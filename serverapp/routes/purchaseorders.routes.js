@@ -16,7 +16,7 @@ router.get('/test', async (req, res) => {
 router.get('/', purchaseorders.findAll);
 
 // single purchase order by id
-router.get('/purchase/:id', purchaseorders.findOne)
+router.get('/:id', purchaseorders.findOne);
 
 // single PO from PO number 
 router.get('/purchase', purchaseorders.findByNum)
