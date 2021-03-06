@@ -15,9 +15,6 @@ router.get('/test', async (req, res) => {
 // Retrieve all purchaseorders through matcode or matdescription - if both null then all 
 router.get('/', purchaseorders.findAll);
 
-// single purchase order by id
-router.get('/:id', purchaseorders.findOne);
-
 // single PO from PO number 
 router.get('/purchase', purchaseorders.findByNum)
 
@@ -29,5 +26,10 @@ router.get('/account', purchaseorders.findByAccount)
 
 // retrieve PO's during a specific year
 router.get('/date', purchaseorders.findByDate)
+
+// single purchase order by id
+router.get('/:id', purchaseorders.findOne);
+
+
 
 module.exports = router;

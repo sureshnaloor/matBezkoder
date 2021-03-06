@@ -43,7 +43,7 @@ exports.findAll = (req,res) => {
 		: {};
 
 
-	Vendors.find(condition).limit(noRec).then((data) => {
+	Vendors.find(condition).sort({'created-date':-1}).limit(noRec).then((data) => {
 		if (!data){
 			res.status(404).send({message: "not found any vendor, check connection"})}
 		

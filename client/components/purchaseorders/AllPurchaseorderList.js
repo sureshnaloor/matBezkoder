@@ -39,40 +39,58 @@ const StyledTableRow = withStyles((theme) => ({
     }
 }))(TableRow)
 
-export const PurchaseorderCard = ({ purchaseorder }) => {
+export const Purchaseorder = ({ purchases }) => {
 	const classes = useStyles();
+
+	const  clean = (obj) => {
+		for (var propName in obj) {
+		  if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "" || obj[propName] === "0") {
+			delete obj[propName]
+		  }
+		  
+		}	
+		return obj
+	  }
 
 	return (
 		<div>
 			<TableContainer>
-				<Typography variant='subtitle2' className={classes.alignCenter}>
-					Purchase orders for this material:
-				</Typography>
+				
 				<Table aria-label='Purchase order table'>
 					<TableHead>
 						<TableRow>
 							<StyledTableCell align='right'>PO Number:</StyledTableCell>
+							<StyledTableCell align='right'> PO Line item: </StyledTableCell>
 							<StyledTableCell align='right'> PO Date </StyledTableCell>
-							<StyledTableCell align='right'>Vendor</StyledTableCell>
+							<StyledTableCell align='right'> Vendor code: </StyledTableCell>
+							<StyledTableCell align='right'>Vendor Name</StyledTableCell>
+							<StyledTableCell align='right'> Material code </StyledTableCell>
+							<StyledTableCell align='right'> Material desc: </StyledTableCell>
 							<StyledTableCell align='right'>PO Qty</StyledTableCell>
 							<StyledTableCell align='right'>PO UOM</StyledTableCell>
 							<StyledTableCell align='right'>PO Price</StyledTableCell>
 							<StyledTableCell align='right'>PO Currency</StyledTableCell>
+							<StyledTableCell align='right'> Charged to: </StyledTableCell>
 						</TableRow>
 					</TableHead>
 
 					<TableBody>
-						{purchaseorder.map((row) => (
+						{purchases.map((row) => (
 							<StyledTableRow key={row._id}>
 								<StyledTableCell align='right'>{row['po-number']}</StyledTableCell>
+								<StyledTableCell align='right'>{row['po-line-item']}</StyledTableCell>
 								<StyledTableCell align='right'>
 									<Moment format='YYYY/MM/DD' date={row['po-date']} />
 								</StyledTableCell>
+								<StyledTableCell align='right'>{row['vendor-code']}</StyledTableCell>
 								<StyledTableCell align='right'>{row['vendor-name']}</StyledTableCell>
+								<StyledTableCell align='right'>{row['material']['material-code']}</StyledTableCell>
+								<StyledTableCell align='right'>{row['material']['short-text']}</StyledTableCell>
 								<StyledTableCell align='right'>{row['po-qty']}</StyledTableCell>
 								<StyledTableCell align='right'>{row['po-uom']}</StyledTableCell>
 								<StyledTableCell align='right'>{row['po-price']}</StyledTableCell>
 								<StyledTableCell align='right'>{row['po-currency']}</StyledTableCell>
+								<StyledTableCell align="right">{(clean(row["account"])[Object.keys(clean(row["account"]))[0]])}</StyledTableCell>
 							</StyledTableRow>
 						))}
 					</TableBody>

@@ -2,10 +2,7 @@ import React, {useEffect} from 'react';
 import Link from '../Link';
 import Moment from 'react-moment';
 
-import {Purchaseorder} from '../purchaseorders/PurchaseorderList'
-import {Materialdocuments} from '../materialdocuments/MaterialdocumentsList'
-import { Completestk } from '../completestock/CompleteStk';
-import {SpecialStk} from '../specialstock/SpecialStk'
+import {Purchaseorder} from '../purchaseorders/PurchaseorderListbyVendor'
 
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -61,86 +58,92 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const MaterialsList = ({
-	materials,
-	setActiveMaterial,
-	currentMaterial,
-	searchDescription,
-	onChangeSearchDescription,
-	findByDescription,
-	searchMatcode,
-	onChangeSearchMatcode,
-	findByMatcode
+
+const VendorsList = ({
+    vendors,
+	setActiveVendor,
+	currentVendor,
+    searchVendorname,    
+	findByVendorname,	
+	onChangeSearchVendorname,
+	searchVendorcode,
+	findByVendorcode,
+	onChangeSearchVendorcode,
+	fromVendorPage,
+    
 }) => {
 	const classes = useStyles();
-
+	
 	useEffect(()=> {
-		setActiveMaterial(materials[0])
-	},[materials])
+		setActiveVendor(vendors[0])
+	},[vendors])
+    
+    return (
+        <>
+           <div className={classes.materials} >
+			<h5> (Please enter  part of vendor name to search (or) vendor code) </h5>	
 
-	return (
-		<div className='materials'>
-			<h5> (Please enter matcode for displaying its data (or) description to search- NOT both) </h5>
 			<TextField
 				id='outlined-basic'
-				label='Enter Mat desc to search'
+				label='Vendor Name'
 				variant='outlined'
 				className='textinput'
 				size='small'
-				value={searchDescription}
-				onChange={onChangeSearchDescription}
+				value={searchVendorname}
+				onChange={onChangeSearchVendorname}
 			/>
 
 			<Button
 				size='small'
 				variant='contained'
-				color='secondary'
-				onClick={findByDescription}
+				color='primary'
+				onClick={findByVendorname}
 				className={classes.margin}
-				
 			>
-				Search
-			</Button>
+				Search by name
+			</Button>			
 
 			<TextField
 				id='outlined-basic'
-				label='Enter Mat-code'
+				label='Vendor Code:'
 				variant='outlined'
 				className='textinput'
 				size='small'
-				value={searchMatcode}
-				onChange={onChangeSearchMatcode}
+				value={searchVendorcode}
+				onChange={onChangeSearchVendorcode}
 			/>
 
 			<Button
 				size='small'
 				variant='outlined'
-				color='primary'
-				onClick={findByMatcode}
+				color='secondary'
+				onClick={findByVendorcode}
 				className={classes.margin}
 			>
-				Search
+				Search by code
 			</Button>
+       
 
-			<Grid container spacing={2} className={classes.grid}>
+        <Grid container spacing={2} className={classes.grid}>
 				<Grid item xs={6} md={6}>
-					{materials.map((mat, index) => (
+					{vendors.map((row, index) => (
 						<List component='nav' key={index}>
-							<ListItem onClick={() => setActiveMaterial(mat, index)}>
+							<ListItem onClick={() => setActiveVendor(row, index)}>
 								<ListItemIcon>
 									<BallotIcon color='action' />
 								</ListItemIcon>
 								<ListItemText
 									className={classes.fontColor}
-									primary={mat['material-code']}
-									secondary={mat['Mat-description']}
+									primary={row['vendor-code']}
+									secondary={row['vendor-name']}
 								/>
 							</ListItem>
 						</List>
 					))}
 				</Grid>
-				<Grid item xs={6} md={6}>
-					{currentMaterial ? (
+
+                <Grid item xs={6} md={6}>
+					{currentVendor ? (
 						<>
 							<Paper
 								elevation={3}
@@ -153,29 +156,34 @@ const MaterialsList = ({
 										variant='subtitle1'
 										className={classes.alignCenter}
 									>
-										Mat Code: {currentMaterial['material-code']}
+										
+										Vendor Code: {currentVendor['vendor-code']}
+										
 									</Typography>
 									<Divider />
 									<Typography variant='subtitle2' gutterBottom>
-										Mat Description: {currentMaterial['Mat-description']} <br />
+										
+									 Vendor Name: {currentVendor['vendor-name']} <br /> 
 									</Typography>
 									<Typography variant='button' display='block' gutterBottom>
-										Mat Type: {currentMaterial['mat-type']} <br />
+										Material group: {currentVendor['mat-group']} <br />
 									</Typography>
 									<Typography variant='button' display='block' gutterBottom>
-										Mat Group: {currentMaterial['material-group']} <br />
+										Remarks: {currentVendor['remarks']} <br />
 									</Typography>
 									<Typography variant='button' display='block' gutterBottom>
-										Unit Measure: {currentMaterial['unit-measure']} <br />
+										CR Number: {currentVendor['registration-number']} <br />
 									</Typography>
+									
 									<Typography variant='caption' display='block' gutterBottom>
-										Mat Industry: {currentMaterial['material-industry']} <br />
-									</Typography>
-									<Typography variant='caption' display='block' gutterBottom>
-										Old Mat Number: {currentMaterial['old-material-number']}{' '}
+										Salesperson contact: {currentVendor['salesperson']['name']}
 										<br />
 									</Typography>
-									<Link href={'/materials/' + currentMaterial._id}>
+									<Typography variant='caption' display='block' gutterBottom>
+										Salesperson Mobile: {currentVendor['salesperson']['mobile']}
+										<br />
+									</Typography>
+									<Link href={'/vendors/' + currentVendor._id}>
 										<Button size='small' variant='contained' color='primary'>
 											<a className={classes.editBtn}>Edit</a>
 										</Button>
@@ -189,7 +197,7 @@ const MaterialsList = ({
 										Created date:{' '}
 										<Moment
 											format='YYYY/MM/DD'
-											date={currentMaterial['created-date']}
+											date={currentVendor['created-date']}
 										/>
 									</Typography>
 									<Typography
@@ -197,77 +205,40 @@ const MaterialsList = ({
 										display='block'
 										className={classes.alignRight}
 									>
-										Created By: {currentMaterial['created-by']}
+										Created By: {currentVendor['created-by']}
 									</Typography>
-									<Typography
-										variant='overline'
-										display='block'
-										className={classes.alignRight}
-									>
-										Changed date:
-										<Moment
-											format='YYYY/MM/DD'
-											date={currentMaterial['changed-date']}
-										/>
-									</Typography>
-									<Typography
-										variant='overline'
-										display='block'
-										className={classes.alignRight}
-									>
-										Changed By: {currentMaterial['changed-by']} <br />
-									</Typography>
+									
 								</div>
 							</Paper>
 							<br />
 
-							{/* stock levels for the selected material*/}
-							<Paper
-								elevation={3}
-								square
-								className={classes.bgColor2}
-								justify='center'
-							>
-								<SpecialStk matcode={currentMaterial['material-code']} />
-								<br/> <hr />
-								<Completestk matcode={currentMaterial['material-code']} />
-								<br/>
-							</Paper>
-							<br />
-
-							{/* purchase order list for selected material */}
+							{/* Purchase orders of the selected vendor */}
+						
 							<Paper
 								elevation={3}
 								square
 								className={classes.bgColor}
 								justify='center'
 							>
-								<Purchaseorder matcode={currentMaterial['material-code']} />
+								<Purchaseorder vencode={currentVendor['vendor-code']} />
 							</Paper>
 							<br />
-
-							{/* material documents for the selected material */}
-
-							<Paper
-								elevation={3}
-								square
-								className={classes.bgColor2}
-								justify='center'
-							>
-								<Materialdocuments matcode={currentMaterial['material-code']} />
-							</Paper>
-							<br />
+							
+							
 						</>
 					) : (
 						<div>
 							<br />
-							<p>Please click on a Material to get its details...</p>
+							<p>Please click on a Vendor to get its details...</p>
 						</div>
 					)}
 				</Grid>
-			</Grid>
-		</div>
-	);
-};
 
-export default MaterialsList;
+        </Grid>
+
+                 </div>
+        </>
+    )
+}
+
+export default VendorsList

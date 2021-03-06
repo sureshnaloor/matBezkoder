@@ -76,7 +76,7 @@ exports.findByMatAll = (req,res) => {
 		  }
 		: {}
 	
-		Materialdocuments.find(condition).limit(noRec).then((data) => {
+		Materialdocuments.find(condition).limit(noRec).sort([['document-date', -1], ['document-number', 1], ['document-itemno', 1]]).then((data) => {
 			if (!data){
 				res.status(404).send({message: "not found any document, check connection"})}
 			

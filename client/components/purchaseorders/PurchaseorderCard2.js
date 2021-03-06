@@ -46,14 +46,15 @@ export const PurchaseorderCard = ({ purchaseorder }) => {
 		<div>
 			<TableContainer>
 				<Typography variant='subtitle2' className={classes.alignCenter}>
-					Purchase orders for this material:
+					Purchase orders for this Vendor:
 				</Typography>
 				<Table aria-label='Purchase order table'>
 					<TableHead>
 						<TableRow>
 							<StyledTableCell align='right'>PO Number:</StyledTableCell>
 							<StyledTableCell align='right'> PO Date </StyledTableCell>
-							<StyledTableCell align='right'>Vendor</StyledTableCell>
+							<StyledTableCell align='right'>Material code </StyledTableCell>
+                            <StyledTableCell align='right'>Material text </StyledTableCell>
 							<StyledTableCell align='right'>PO Qty</StyledTableCell>
 							<StyledTableCell align='right'>PO UOM</StyledTableCell>
 							<StyledTableCell align='right'>PO Price</StyledTableCell>
@@ -68,7 +69,8 @@ export const PurchaseorderCard = ({ purchaseorder }) => {
 								<StyledTableCell align='right'>
 									<Moment format='YYYY/MM/DD' date={row['po-date']} />
 								</StyledTableCell>
-								<StyledTableCell align='right'>{row['vendor-name']}</StyledTableCell>
+								<StyledTableCell align='right'>{row['material']['material-code']}</StyledTableCell>
+                                <StyledTableCell align='right'>{row['material']['short-text']}</StyledTableCell>
 								<StyledTableCell align='right'>{row['po-qty']}</StyledTableCell>
 								<StyledTableCell align='right'>{row['po-uom']}</StyledTableCell>
 								<StyledTableCell align='right'>{row['po-price']}</StyledTableCell>

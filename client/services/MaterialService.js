@@ -12,6 +12,10 @@ const findByDescription = (description) => {
 	return http.get(`/materials?description=${description}`);
 };
 
+const findByMatcode = (matcode) => {
+	return http.get(`/materials?matcode=${matcode}`);
+};
+
 const get = (id) => {
 	return http.get(`/materials/${id}`);
 };
@@ -36,4 +40,5 @@ export default {
 	update,
 	remove,
 	findByDescription,
+	findByMatcode,
 };

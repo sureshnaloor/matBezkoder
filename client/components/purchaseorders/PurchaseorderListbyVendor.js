@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 
 import PurchaseService from '../../../client/services/Purchaseorders';
-import { PurchaseorderCard } from './PurchaseorderCard';
+import { PurchaseorderCard } from './PurchaseorderCard2';
 import { NopurchaseorderCard } from './NopurchaseorderCard';
 
-export const Purchaseorder = ({ matcode }) => {
+export const Purchaseorder = ({ vencode }) => {
 	const [purchaseorder, setPurchaseorder] = useState([]);
-	console.log(matcode);
+	console.log(vencode);
 
 	const getPurchaseorder = async () => {
-		const response = await PurchaseService.getByCode(matcode);
+		const response = await PurchaseService.getByVencode(vencode);
 		await setPurchaseorder(response.data);
 		console.log(purchaseorder);
 	};
 
 	useEffect(() => {
 		getPurchaseorder();
-	}, [matcode]);
+	}, [vencode]);
 
 	return (
 		<>

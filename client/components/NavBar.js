@@ -86,7 +86,7 @@ const NavBar = () => {
 									<ListItemText inset>
 										<Shop fontSize='small' color='secondary' />
 										<Typography variant='button'>
-											<Link href='/transactions'>
+											<Link href='/materialtransactions'>
 												<a>Transactions</a>
 											</Link>
 										</Typography>

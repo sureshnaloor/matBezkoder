@@ -1,7 +1,7 @@
 const db = require('../models');
 const Purchaseorders = db.purchaseorders;
 
-// retireve single material
+// retireve single PO id
 exports.findOne = (req, res) => {
 	const id = req.params.id;
 
@@ -40,7 +40,7 @@ exports.findAll = (req, res) => {
 		  }
 		: {}
 
-	Purchaseorders.find(condition).limit(noRec)
+	Purchaseorders.find(condition).limit(noRec).sort([['po-date', -1],['po-number', 1], ['po-line-item', 1]])
 		.then((data) => {
 			if (!data)
 				res.status(404).send({ message: 'Not found any purchase orders '  });

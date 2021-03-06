@@ -13,6 +13,7 @@ const Materials = () => {
 	const [matgroups, setMatgroups] = useState([]);
 	const [currentIndex, setCurrentIndex] = useState(-1);
 	const [searchDescription, setSearchDescription] = useState('');
+	const [searchMatcode, setSearchMatcode] = useState("")
 	const [matgroupSelected, setMatgroupSelected] = useState('AM01');
 
 	const setActiveMaterial = (material, index) => {
@@ -23,12 +24,29 @@ const Materials = () => {
 	const onChangeSearchDescription = (e) => {
 		const searchDescription = e.target.value;
 		setSearchDescription(searchDescription);
-		console.log(searchDescription);
+		// console.log(searchDescription);
+	};
+
+	const onChangeSearchMatcode = (e) => {
+		const searchMatcode = e.target.value;
+		setSearchMatcode(searchMatcode);
+		// console.log(searchDescription);
 	};
 
 	// below snippet should be changed to async await for consistency
 	const findByDescription = () => {
 		MatDataService.findByDescription(searchDescription)
+			.then((response) => {
+				setMaterials(response.data);
+				console.log(response.data);
+			})
+			.catch((e) => {
+				console.log(e);
+			});
+	};
+
+	const findByMatcode = () => {
+		MatDataService.findByMatcode(searchMatcode)
 			.then((response) => {
 				setMaterials(response.data);
 				console.log(response.data);
@@ -88,8 +106,11 @@ const Materials = () => {
 						setActiveMaterial={setActiveMaterial}
 						currentMaterial={currentMaterial}
 						searchDescription={searchDescription}
+						searchMatcode={searchMatcode}
 						onChangeSearchDescription={onChangeSearchDescription}
 						findByDescription={findByDescription}
+						findByMatcode={findByMatcode}
+						onChangeSearchMatcode = {onChangeSearchMatcode}
 					/>
 				</div>
 			</>

@@ -65,11 +65,12 @@ exports.create = (req, res, next) => {
 exports.findAll = (req, res) => {
 	
 	const description = req.query.description;
+	const matcode = req.query.matcode;
 
 	const noRec = 100;
 	var condition = description
-		? { 'Mat-description': { $regex: new RegExp(description), $options: 'i' } }
-		: {};
+		? { 'Mat-description': { $regex: new RegExp(description), $options: 'i' } } : matcode ? 
+		{"material-code": matcode} : {};
 
 	Material.find(condition)
 		.limit(noRec)

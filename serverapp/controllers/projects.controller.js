@@ -25,7 +25,7 @@ exports.findAll = (req, res) => {
 		  }
 		: {};
 
-	Project.find(condition)
+	Project.find(condition).sort({'created-date':-1})
 		.limit(noRec)
 		.then((data) => {
 			res.send(data);
