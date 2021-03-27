@@ -115,7 +115,7 @@ const MaterialsList = ({
 			<Button
 				size='small'
 				variant='outlined'
-				color='primary'
+				color='secondary'
 				onClick={findByMatcode}
 				className={classes.margin}
 			>

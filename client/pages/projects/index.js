@@ -7,13 +7,12 @@ const Projects = () => {
 	const [projects, setProjects] = useState([]);
 	const [isLoading, setLoading] = useState(true);
     const [currentProject, setCurrentProject] = useState(null);
-    const [currentIndex, setCurrentIndex] = useState(-1);
-	const [searchProjectname, setSearchProjectname] = useState('');
+    const [searchProjectname, setSearchProjectname] = useState('');
 	
     
-    const setActiveProject = (project, index) => {
+    const setActiveProject = (project) => {
 		setCurrentProject(project);
-		setCurrentIndex(index);
+		// setCurrentIndex(index);
 	};
 
 	const onChangeSearchProjectname = (e) => {
@@ -34,6 +33,10 @@ const Projects = () => {
 	useEffect(() => {
 		retrieveProjects();
 	}, []);
+
+	useEffect(()=> {
+		console.log(currentProject)
+	}, [currentProject])
 
 	const retrieveProjects = async () => {
 		await setLoading(true);

@@ -153,7 +153,7 @@ exports.findByAccount= (req, res) => {
 		  }
 		: wbs
 		? {
-				'account.wbs': {
+				'account.wbs-element': {
 					$regex: new RegExp(wbs),
 					$options: 'i',
 				}

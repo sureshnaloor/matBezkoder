@@ -30,8 +30,8 @@ export const StockCard = ({ specialstk }) => {
 				<Table aria-label='simple table'>
 					<TableHead>
 						<TableRow>
-							<TableCell align='right'>Plant Code:</TableCell>
-							<TableCell align='right'> wbs-element </TableCell>
+							<TableCell align='right'>Material code</TableCell>
+							<TableCell align='right'> Plant code </TableCell>
 							<TableCell align='right'>Current stock qty</TableCell>
 							<TableCell align='right'>Current stock value</TableCell>
 							<TableCell align='right'>Unit of measure</TableCell>
@@ -41,8 +41,8 @@ export const StockCard = ({ specialstk }) => {
 					<TableBody>
 						{specialstk.map((row) => (
 							<TableRow key={row._id}>
+								<TableCell align='right'>{row['material-code']}</TableCell>
 								<TableCell align='right'>{row['plant-code']}</TableCell>
-								<TableCell align='right'>{row['wbs-element']}</TableCell>
 								<TableCell align='right'>{row['stock-qty']}</TableCell>
 								<TableCell align='right'>{row['stock-val']}</TableCell>
 								<TableCell align='right'>{row['unit-of-measure']}</TableCell>
