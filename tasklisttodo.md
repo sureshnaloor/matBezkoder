@@ -1,0 +1,5 @@
+- [] to install and use concurrently
+- [] to use proxy
+- [] login functionality and make all pages except home page protected routes
+- [] home page to have graphs and charts
+- [] EXCEL download functionality in the relevant pages

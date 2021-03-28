@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 
 import { Home, Description, Book, AccountBox, Shop } from '@material-ui/icons';
+import AccountBalanceWalletTwoToneIcon from '@material-ui/icons/AccountBalanceWalletTwoTone';
 
 const NavBar = () => {
 	const flexContainer = {
@@ -25,15 +26,15 @@ const NavBar = () => {
 			<AppBar position='static'>
 				<Toolbar>
 					<Grid container>
-						<Grid item xs={2} md={2}>
-							<Typography variant='body1' color='inherit'>
+						<Grid>
+							{' '}
+							<Link href='/'>
 								<Home fontSize='small' color='secondary' />
-								SAP MM Portal
-							</Typography>
+							</Link>
 						</Grid>
 
 						<List component='nav' style={flexContainer}>
-							<Grid item xs={2} md={2}>
+							<Grid>
 								<ListItem>
 									<ListItemText inset>
 										<Book fontSize='small' color='secondary' />
@@ -45,7 +46,7 @@ const NavBar = () => {
 									</ListItemText>
 								</ListItem>
 							</Grid>
-							<Grid item xs={2} md={2}>
+							<Grid>
 								<ListItem>
 									<ListItemText inset>
 										<AccountBox fontSize='small' color='secondary' />
@@ -57,7 +58,7 @@ const NavBar = () => {
 									</ListItemText>
 								</ListItem>
 							</Grid>
-							<Grid item xs={2} md={2}>
+							<Grid>
 								<ListItem>
 									<ListItemText inset>
 										<Description fontSize='small' color='secondary' />
@@ -69,7 +70,7 @@ const NavBar = () => {
 									</ListItemText>
 								</ListItem>
 							</Grid>
-							<Grid item xs={2} md={2}>
+							<Grid>
 								<ListItem>
 									<ListItemText inset>
 										<Shop fontSize='small' color='secondary' />
@@ -81,10 +82,13 @@ const NavBar = () => {
 									</ListItemText>
 								</ListItem>
 							</Grid>
-							<Grid item xs={2} md={2}>
+							<Grid>
 								<ListItem>
 									<ListItemText inset>
-										<Shop fontSize='small' color='secondary' />
+										<AccountBalanceWalletTwoToneIcon
+											fontSize='small'
+											color='secondary'
+										/>
 										<Typography variant='button'>
 											<Link href='/materialtransactions'>
 												<a>Transactions</a>
@@ -93,14 +97,14 @@ const NavBar = () => {
 									</ListItemText>
 								</ListItem>
 							</Grid>
-							{/* <Grid item xs={2} md={2}>
+							<Grid>
 								<ListItem>
 									<ListItemText inset>
 										<img src='https://img.icons8.com/material/24/000000/login-rounded--v1.png' />
 										<Typography variant='button'>Login</Typography>
 									</ListItemText>
 								</ListItem>
-							</Grid> */}
+							</Grid>
 						</List>
 					</Grid>
 				</Toolbar>

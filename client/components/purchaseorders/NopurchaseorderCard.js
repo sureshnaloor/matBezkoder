@@ -15,7 +15,7 @@ export const NopurchaseorderCard = () => {
 	return (
 		<div>
 			<Typography variant='subtitle2' className={classes.alignCenter}>
-				No purchase orders so far for this material
+				No purchase orders so far.
 			</Typography>
 		</div>
 	);

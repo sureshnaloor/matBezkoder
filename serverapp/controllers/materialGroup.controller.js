@@ -14,6 +14,7 @@ exports.findAll = (req, res) => {
 		: {};
 
 	MaterialGroup.find(condition)
+		.sort({ 'material-group': 1 })
 		.limit(noRec)
 		.then((data) => {
 			res.send(data);
