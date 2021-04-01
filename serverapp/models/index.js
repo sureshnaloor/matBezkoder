@@ -16,5 +16,6 @@ db.specialstock = require('./specialstock.model')(mongoose);
 db.completestock = require('./completestock.model')(mongoose);
 db.materialdocuments = require('./materialdocuments.model')(mongoose);
 db.networks = require('./networks.model')(mongoose);
+db.users = require('./users.model')(mongoose);
 
 module.exports = db;

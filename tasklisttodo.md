@@ -2,4 +2,5 @@
 - [ ] to use proxy
 - [ ] login functionality and make all pages except home page protected routes
 - [ ] home page to have graphs and charts
-- [ ] EXCEL download functionality in the relevant pages
+- [X] EXCEL download functionality in the relevant pages
+- [ ] Server pre-rendered pages for materials, purchases, vendors and transactions.
