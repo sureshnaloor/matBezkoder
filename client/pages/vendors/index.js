@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import VendorDataService from '../../services/VendorService';
 import VendorsList from '../../components/vendors/VendorsList';
@@ -11,7 +12,8 @@ const Vendors = () => {
 	const [searchVendorname, setSearchVendorname] = useState('');
 	const [searchVendorcode, setSearchVendorcode] = useState("");
 	
-    
+    const router = useRouter();
+	
     const setActiveVendor = (vendor, index) => {
 		setCurrentVendor(vendor);
 		setCurrentIndex(index);
@@ -48,6 +50,16 @@ const Vendors = () => {
 			console.log(error)
 		}		
 	};	
+
+	useEffect(() => {
+		if (!localStorage.getItem('token')) {
+			router.push('/login');
+		}
+
+		window.onbeforeunload = () => {
+			localStorage.removeItem('token');
+		};
+	}, []);
 
 	useEffect(() => {
 		retrieveVendors();

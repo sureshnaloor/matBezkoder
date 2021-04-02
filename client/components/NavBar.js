@@ -101,7 +101,23 @@ const NavBar = () => {
 								<ListItem>
 									<ListItemText inset>
 										<img src='https://img.icons8.com/material/24/000000/login-rounded--v1.png' />
-										<Typography variant='button'>Login</Typography>
+										<Typography variant='button'>
+											<Link href='/login'>
+												<a>Login</a>
+											</Link>
+										</Typography>
+									</ListItemText>
+								</ListItem>
+							</Grid>
+							<Grid>
+								<ListItem>
+									<ListItemText inset>
+										<img src='/images/passwordchg.png' />
+										<Typography variant='button'>
+											<Link href='/chgpassword'>
+												<a>pw change</a>
+											</Link>
+										</Typography>
 									</ListItemText>
 								</ListItem>
 							</Grid>

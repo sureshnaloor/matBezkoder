@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useRouter } from 'next/router';
 
 import ProjectDataService from '../../services/Projects';
 import ProjectsList from '../../components/projects/ProjectsList';
@@ -8,7 +9,8 @@ const Projects = () => {
 	const [isLoading, setLoading] = useState(true);
     const [currentProject, setCurrentProject] = useState(null);
     const [searchProjectname, setSearchProjectname] = useState('');
-	
+
+	const router = useRouter();	
     
     const setActiveProject = (project) => {
 		setCurrentProject(project);
@@ -30,6 +32,17 @@ const Projects = () => {
 			console.log(error)
 		}		
 	};
+
+	useEffect(() => {
+		if (!localStorage.getItem('token')) {
+			router.push('/login');
+		}
+
+		window.onbeforeunload = () => {
+			localStorage.removeItem('token');
+		};
+	}, []);
+
 	useEffect(() => {
 		retrieveProjects();
 	}, []);

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useRouter } from 'next/router';
 
 import MaterialdocDataService from '../../services/MaterialDocuments';
 import MaterialdocList from '../../components/materialdocuments/MaterialdocumentsAll';
@@ -6,6 +7,8 @@ import MaterialdocList from '../../components/materialdocuments/Materialdocument
 const Materialtransactions = () => {
 	const [materialdocs, setMaterialdocs] = useState([]);
 	const [isLoading, setLoading] = useState(true);
+
+	const router = useRouter();
     
 	// const [searchProjectname, setSearchProjectname] = useState('');
 	
@@ -33,6 +36,16 @@ const Materialtransactions = () => {
 	
 	useEffect(() => {
 		retrieveMaterialdocs();
+	}, []);
+
+	useEffect(() => {
+		if (!localStorage.getItem('token')) {
+			router.push('/login');
+		}
+
+		window.onbeforeunload = () => {
+			localStorage.removeItem('token');
+		};
 	}, []);
 
 	const retrieveMaterialdocs = async () => {
