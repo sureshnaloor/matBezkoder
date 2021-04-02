@@ -9,7 +9,7 @@ const index = () => {
 	const getUser = async () => {
 		const res = await UserAuthService.getUser();
 		setUser(res.data);
-		// console.log(res.data)
+		console.log(res.data);
 	};
 
 	useEffect(() => {
