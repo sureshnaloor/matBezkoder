@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { useRouter } from 'next/router';
 
 import PurchaseDataService from '../../services/Purchaseorders';
 import {Purchaseorder} from '../../components/purchaseorders/AllPurchaseorderList';
@@ -6,6 +7,8 @@ import {Purchaseorder} from '../../components/purchaseorders/AllPurchaseorderLis
 const Purchases = () => {
 	const [purchases, setPurchases] = useState([]);
 	const [isLoading, setLoading] = useState(true);
+
+	const router = useRouter();
     
 	const [searchProjectname, setSearchProjectname] = useState('');
 	const [searchVendorname, setSearchVendorname] = useState('')    
@@ -43,6 +46,16 @@ const Purchases = () => {
 			console.log(error)
 		}		
 	};
+
+	useEffect(() => {
+		if (!localStorage.getItem('token')) {
+			router.push('/login');
+		}
+
+		window.onbeforeunload = () => {
+			localStorage.removeItem('token');
+		};
+	}, []);
 
 	useEffect(() => {
 		retrievePurchases();

@@ -1,6 +1,7 @@
-- [ ] to install and use concurrently
-- [ ] to use proxy
-- [ ] login functionality and make all pages except home page protected routes
+- [X] to install and use concurrently
+- [X] to use proxy (or) baseurl 
+- [X] login functionality and make all pages except home page protected routes
 - [ ] home page to have graphs and charts
 - [X] EXCEL download functionality in the relevant pages
 - [ ] Server pre-rendered pages for materials, purchases, vendors and transactions.
+- [ ] pagination 

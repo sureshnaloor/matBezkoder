@@ -109,6 +109,18 @@ const NavBar = () => {
 									</ListItemText>
 								</ListItem>
 							</Grid>
+							<Grid>
+								<ListItem>
+									<ListItemText inset>
+										<img src='/images/passwordchg.png' />
+										<Typography variant='button'>
+											<Link href='/chgpassword'>
+												<a>pw change</a>
+											</Link>
+										</Typography>
+									</ListItemText>
+								</ListItem>
+							</Grid>
 						</List>
 					</Grid>
 				</Toolbar>

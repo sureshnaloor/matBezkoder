@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import MatDataService from '../../services/MaterialService';
 import MatgroupDataServices from '../../services/MaterialGroups';
@@ -7,6 +8,7 @@ import MaterialsList from '../../components/materials/MaterialsList';
 import MaterialgroupList from '../../components/materials/MaterialgroupList';
 
 const Materials = () => {
+	const router = useRouter();
 	const [materials, setMaterials] = useState([]);
 	const [isLoading, setLoading] = useState(true);
 	const [currentMaterial, setCurrentMaterial] = useState(null);
@@ -20,6 +22,17 @@ const Materials = () => {
 		setCurrentMaterial(material);
 		setCurrentIndex(index);
 	};
+
+	useEffect(() => {
+		if (!localStorage.getItem('token')) {
+			router.push('/login');
+		}
+
+		window.onbeforeunload = () => {
+			localStorage.removeItem('token');
+		};
+	}, []);
+	
 
 	const onChangeSearchDescription = (e) => {
 		const searchDescription = e.target.value;

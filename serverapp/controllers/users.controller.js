@@ -40,6 +40,7 @@ exports.login = async (req, res) => {
 		const token = jwt.sign({ _id: user._id }, 'exbeyondisawesome', {
 			expiresIn: '1hr',
 		});
+		console.log(token);
 		return res.json({ token });
 	} catch (error) {
 		console.log(error);
@@ -51,7 +52,7 @@ exports.login = async (req, res) => {
 exports.requireAuth = async (req, res) => {
 	try {
 		const user = await Users.findById(req.user._id).select('-password');
-		res.json(user);
+		return res.json(user);
 	} catch (error) {
 		console.log(error);
 	}
