@@ -9,6 +9,7 @@ import {
 	Toolbar,
 	AppBar,
 	Grid,
+	IconButton,
 } from '@material-ui/core';
 
 import { Home, Description, Book, AccountBox, Shop } from '@material-ui/icons';
@@ -49,7 +50,9 @@ const NavBar = () => {
 							<Grid>
 								<ListItem>
 									<ListItemText inset>
-										<AccountBox fontSize='small' color='secondary' />
+										{/* <IconButton> */}
+												<AccountBox fontSize='small' color='secondary' />
+										{/* </IconButton> */}
 										<Typography variant='button'>
 											<Link href='/vendors'>
 												<a>Vendors</a>

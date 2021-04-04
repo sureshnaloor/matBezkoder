@@ -22,7 +22,14 @@ export default function Header() {
 					</Typography>
 				</Grid>
 				<Grid item xs={3}>
-					Welcome 
+					<Typography
+						variant='h6'
+						align='center'
+						color='textSecondary'
+						gutterBottom
+					>
+						Welcome User.
+					</Typography>
 				</Grid>
 			</Grid>
 		</>
