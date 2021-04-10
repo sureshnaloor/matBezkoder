@@ -12,8 +12,8 @@ router.get('/test', async (req, res) => {
 	}
 });
 
-//retrieve all stock whose value > 0
-router.get('/', completestock.findEach);
+//retrieve all stock whose value > 0.01 SR
+router.get('/', completestock.findAll);
 
 // Retrieve by id
 router.get('/material/:id', completestock.findOne);

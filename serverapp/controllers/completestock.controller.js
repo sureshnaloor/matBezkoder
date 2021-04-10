@@ -2,10 +2,11 @@ const { completestock } = require('../models');
 const db = require('../models');
 const Completestock = db.completestock;
 
-// retrive list of all matcodes having value > 1 SR
+// retrive list of all matcodes having value > 0.01 SR
 
-exports.findEach = (req,res) => {
-	completestock.find({ "current-stkval": { $gt: 1 } }).sort({ "current-stkval": -1 }).exec()
+exports.findAll = (req,res) => {
+	
+	completestock.find({ "current-stkval": { $gt: 0.01 } }).sort({ "current-stkval": -1 }).exec()
 	.then(allstk => res.json(allstk))
 	.catch(err => res.status(404).json(err));
 }
