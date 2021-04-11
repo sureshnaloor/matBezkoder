@@ -22,7 +22,7 @@ exports.findAll = async (req,res) => {
             }
         }
 
-        if(endIndex < 10000){
+        if(endIndex < await Completestock.countDocuments().exec()){
             results.next = {
                 page: page+1,
                 limit: limit,

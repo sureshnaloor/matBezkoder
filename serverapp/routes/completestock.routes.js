@@ -3,11 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 const db = require('../models');
-const Completestock = db.completestock;
 
 const completestock = require('../controllers/completestock.controller');
-
-
 
 router.get('/test', async (req, res) => {
 	try {
