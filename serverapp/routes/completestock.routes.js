@@ -2,7 +2,12 @@ const express = require('express');
 
 const router = express.Router();
 
+const db = require('../models');
+const Completestock = db.completestock;
+
 const completestock = require('../controllers/completestock.controller');
+
+
 
 router.get('/test', async (req, res) => {
 	try {
@@ -13,7 +18,8 @@ router.get('/test', async (req, res) => {
 });
 
 //retrieve all stock whose value > 0.01 SR
-router.get('/', completestock.findAll);
+router.get('/',  completestock.findAll);
+
 
 // Retrieve by id
 router.get('/material/:id', completestock.findOne);

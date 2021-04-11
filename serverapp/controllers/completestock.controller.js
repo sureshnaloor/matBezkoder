@@ -1,14 +1,39 @@
-const { completestock } = require('../models');
+
 const db = require('../models');
 const Completestock = db.completestock;
 
+
 // retrive list of all matcodes having value > 0.01 SR
 
-exports.findAll = (req,res) => {
-	
-	completestock.find({ "current-stkval": { $gt: 0.01 } }).sort({ "current-stkval": -1 }).exec()
-	.then(allstk => res.json(allstk))
-	.catch(err => res.status(404).json(err));
+exports.findAll = async (req,res) => {
+
+	const page = parseInt(req.query.page)
+        const limit = parseInt(req.query.limit)
+
+        const startIndex = (page-1)*limit;
+        const endIndex = page * limit;
+
+        const results = {}
+
+        if (startIndex > 0){
+            results.prev = {
+                page: page-1,
+                limit: limit,
+            }
+        }
+
+        if(endIndex < 10000){
+            results.next = {
+                page: page+1,
+                limit: limit,
+            }
+        }
+
+        
+	const data = await Completestock.find({ "current-stkval": { $gt: 0.01 } }).sort({ "current-stkval": -1 }).limit(limit).skip(startIndex).exec()
+	results.data = data
+
+    res.json(results)
 }
 
 
