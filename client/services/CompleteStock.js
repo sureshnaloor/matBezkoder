@@ -1,7 +1,8 @@
 import http from '../http-common';
 
-const getAll = () => {
-	return http.get('/completestock');
+const getAll = (page) => {
+	let limit=100
+	return http.get(`/completestock?page=${page}&limit=${limit}`);
 };
 
 const getByCode = (matcode) => {

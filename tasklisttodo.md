@@ -5,3 +5,5 @@
 - [X] EXCEL download functionality in the relevant pages
 - [ ] Server pre-rendered pages for materials, purchases, vendors and transactions.
 - [ ] pagination 
+- [ ] IN Projects, search project code is not done. check for all pages
+- [ ] Page done for complete stock, but not included in Nav.

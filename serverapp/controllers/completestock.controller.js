@@ -22,7 +22,7 @@ exports.findAll = async (req,res) => {
             }
         }
 
-        if(endIndex < await Completestock.countDocuments().exec()){
+        if(endIndex < await Completestock.find({ "current-stkval": { $gt: 0.01 } }).countDocuments().exec()){
             results.next = {
                 page: page+1,
                 limit: limit,
