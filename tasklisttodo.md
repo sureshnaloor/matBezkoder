@@ -3,7 +3,7 @@
 - [X] login functionality and make all pages except home page protected routes
 - [ ] home page to have graphs and charts
 - [X] EXCEL download functionality in the relevant pages
-- [ ] Server pre-rendered pages for materials, purchases, vendors and transactions.
-- [ ] pagination 
+- [ ] Server pre-rendered pages for materials, purchases, vendors and transactions.(or)          react-query to cache and speedup
+- [ ] pagination using react-query
 - [ ] IN Projects, search project code is not done. check for all pages
 - [ ] Page done for complete stock, but not included in Nav.
