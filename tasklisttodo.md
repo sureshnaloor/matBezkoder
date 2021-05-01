@@ -1,9 +1,10 @@
 - [X] to install and use concurrently
 - [X] to use proxy (or) baseurl 
 - [X] login functionality and make all pages except home page protected routes
-- [ ] home page to have graphs and charts
+- [p] home page to have graphs and charts
 - [X] EXCEL download functionality in the relevant pages
-- [ ] Server pre-rendered pages for materials, purchases, vendors and transactions.(or)          react-query to cache and speedup
-- [ ] pagination using react-query
+- [p] Server pre-rendered pages for materials, purchases, vendors and transactions.(or)          react-query to cache and speedup
+- [p] pagination using react-query 
+- [ ] All controllers (materials, vendors, transactions, PO's) to be modified with limit, page query params
 - [ ] IN Projects, search project code is not done. check for all pages
-- [ ] Page done for complete stock, but not included in Nav.
+- [X] Page done for complete stock, but not included in Nav.

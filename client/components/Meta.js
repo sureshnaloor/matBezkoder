@@ -14,7 +14,12 @@ const Meta = () => (
 		/>
 
 		<link rel='stylesheet' href='/styles/base.css' />
-		<title> materialsBezkoderNext App</title>
+		<link
+			rel='shortcut icon'
+			type='image/jpg'
+			href='/images/favicon-32x32.png'
+		/>
+		<title> JAL web-connect</title>
 	</Head>
 );
 

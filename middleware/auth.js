@@ -2,21 +2,23 @@ const jwt = require('jsonwebtoken');
 
 // authentication middleware
 
-exports.requireLogin = (req, res, next) => {
-	try {
+exports.requireLogin = (req, res, next) => {	
 		if (req.headers.authorization) {
-			const token = req.headers.authorization.split(' ')[1];
+			try {
+				const token = req.headers.authorization.split(' ')[1];
 
 			// verify token
-			const decode = jwt.verify(token, 'exbeyondisawesome');
+			const decode = token ? jwt.verify(token, 'exbeyondisawesome'): null
 
 			// attach token to request
 			req.user = decode; //decode will be the user._id
 			next();
-		} else {
-			return res.status(400).json({ error: 'invalid token or unauthorized' });
-		}
-	} catch (error) {
-		console.log(error);
+		} 				
+			 catch (error) {
+				next()
+			}
+			
+	} else {
+		console.log('no authorisation header');
 	}
 };
