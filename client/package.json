@@ -25,7 +25,8 @@
 		"react-csv": "^2.0.3",
 		"react-dom": "^16.13.1",
 		"react-moment": "^0.9.7",
-		"react-query": "^3.13.7",
+		"react-query": "^3.13.6",
+		"styled-components": "^5.2.3",
 		"xlsx": "^0.16.9"
 	}
 }
