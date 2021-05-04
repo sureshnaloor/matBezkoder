@@ -2,8 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import './style.css'
 
-import { ToptenComp } from '../components/landingpage/ToptenComp';
-import { CreditsComp } from '../components/landingpage/CreditsComp';
+// import { ToptenComp } from '../components/landingpage/ToptenComp';
+// import { CreditsComp } from '../components/landingpage/CreditsComp';
 import { ChartsComp } from '../components/landingpage/ChartsComp';
 
 const index = () => {
@@ -11,7 +11,6 @@ const index = () => {
 		<>
 			<Head>
 				<title>JAL web-connect</title>
-				
 			</Head>
 			<div>
 				<div className='pageone' id='one'>
@@ -20,7 +19,7 @@ const index = () => {
 							color: green;
 							width: 100%;
 							height: 100vh;
-							background: #00ffcc;
+							background: #e0ebca;
 							display: flex;
 							justify-content: space-between;
 							align-items: center;
@@ -37,13 +36,12 @@ const index = () => {
 							color: red;
 							width: 100%;
 							height: 100vh;
-							background: #000122;
+							background: #ede4cc;
 							display: flex;
-							justify-content: space-between;
-							align-items: center;
+							justify-content: center;
 						}
 					`}</style>
-					<h2> The charts here </h2>
+					{/* <h2> The charts here </h2> */}
 					<ChartsComp />
 				</div>
 
@@ -53,14 +51,14 @@ const index = () => {
 							color: green;
 							width: 100%;
 							height: 100vh;
-							background: #22ffcc;
+							background: #dde2ed;
 							display: flex;
 							justify-content: space-between;
 							align-items: center;
 						}
 					`}</style>
 					<h2> The top 10 data here </h2>
-					<ToptenComp />
+					{/* <ToptenComp /> */}
 				</div>
 
 				<div className='pagefour' id='four'>
@@ -69,14 +67,14 @@ const index = () => {
 							color: green;
 							width: 100%;
 							height: 100vh;
-							background: #ffffcc;
+							background: #f0e6ee;
 							display: flex;
 							justify-content: space-between;
 							align-items: center;
 						}
 					`}</style>
 					<h2> Boasting here! </h2>
-					<CreditsComp />
+					{/* <CreditsComp /> */}
 				</div>
 
 				<div className='widget'>

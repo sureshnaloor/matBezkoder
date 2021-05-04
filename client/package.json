@@ -26,6 +26,7 @@
 		"react-dom": "^16.13.1",
 		"react-moment": "^0.9.7",
 		"react-query": "^3.13.6",
+		"recharts": "^2.0.9",
 		"styled-components": "^5.2.3",
 		"xlsx": "^0.16.9"
 	}

@@ -1,10 +1,8 @@
 const express = require('express');
-
 const router = express.Router();
+const purchaseorders = require('../controllers/purchaseorders.controller');
 
-const purchaseorders= require('../controllers/purchaseorders.controller');
-
-router.get('/test', async (req, res) => {
+router.get('/test', async (_, res) => {
 	try {
 		res.json({ message: 'inside PURCHASE-ORDERS route API' });
 	} catch (err) {
@@ -12,24 +10,22 @@ router.get('/test', async (req, res) => {
 	}
 });
 
-// Retrieve all purchaseorders through matcode or matdescription - if both null then all 
+// Retrieve all purchaseorders through matcode or matdescription - if both null then all
 router.get('/', purchaseorders.findAll);
 
-// single PO from PO number 
-router.get('/purchase', purchaseorders.findByNum)
+// single PO from PO number
+router.get('/purchase', purchaseorders.findByNum);
 
-// retrieve PO list through vencode or vendor name search - if both null then all 
-router.get('/vendor', purchaseorders.findByVendor)
+// retrieve PO list through vencode or vendor name search - if both null then all
+router.get('/vendor', purchaseorders.findByVendor);
 
-// retrieve PO list through account- cost element search 
-router.get('/account', purchaseorders.findByAccount)
+// retrieve PO list through account- cost element search
+router.get('/account', purchaseorders.findByAccount);
 
 // retrieve PO's during a specific year
-router.get('/date', purchaseorders.findByDate)
+router.get('/date', purchaseorders.findByDate);
 
 // single purchase order by id
 router.get('/:id', purchaseorders.findOne);
-
-
 
 module.exports = router;

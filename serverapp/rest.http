@@ -2,4 +2,4 @@
 
 
 
-GET http://localhost:5000/api/completestock?page=10&limit=20
+GET http://localhost:5000/api/completestock?page=1&limit=2

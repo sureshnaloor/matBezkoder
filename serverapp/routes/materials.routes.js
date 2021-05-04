@@ -1,7 +1,5 @@
 const express = require('express');
-
 const router = express.Router();
-
 const materials = require('../controllers/material.controller');
 const upload = require('../../middleware/upload');
 
@@ -23,12 +21,9 @@ router.get('/', materials.findAll);
 router.get('/mg/:matgroup', materials.findbyGroup);
 
 // Retrieve a single Material with id
-router.get('/:id', materials.findOne);
-
-// Update a materiall with id
-router.put('/:id', upload.single('prodImage'), materials.update);
-
-// Delete a material with id
-router.delete('/:id', materials.delete);
+router
+	.get('/:id', materials.findOne)
+	.put('/:id', upload.single('prodImage'), materials.update)
+	.delete('/:id', materials.delete);
 
 module.exports = router;

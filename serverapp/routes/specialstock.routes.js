@@ -1,10 +1,8 @@
 const express = require('express');
-
 const router = express.Router();
-
 const specialstock = require('../controllers/specialstock.controller');
 
-router.get('/test', async (req, res) => {
+router.get('/test', async (_, res) => {
 	try {
 		res.json({ message: 'inside SPECIALSTOCK route API' });
 	} catch (err) {
