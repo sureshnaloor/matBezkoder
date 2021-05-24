@@ -8,3 +8,4 @@
 - [ ] All controllers (materials, vendors, transactions, PO's) to be modified with limit, page query params
 - [ ] IN Projects, search project code is not done. check for all pages
 - [X] Page done for complete stock, but not included in Nav.
+- [ ] Re-factor middleware and other DRY codes.

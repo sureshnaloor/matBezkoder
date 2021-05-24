@@ -61,10 +61,10 @@ function CompleteStkPage(){
     const [page, setPage] = React.useState(1)
 
     const { status, data, error, isFetching, isPreviousData } = useQuery(
-        ['completestk', page],
-        () => fetchCompletestk(page),
-        { keepPreviousData: true, staleTime: 50000 }
-      )
+			['completestk', page],
+			() => fetchCompletestk(page),
+			{ keepPreviousData: true, staleTime: 500 }
+		);
 
       // Prefetch the next page!
     React.useEffect(() => {
