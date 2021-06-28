@@ -22,4 +22,7 @@ router.get('/matcode/:code', completestock.findByCode);
 //retreive sum of value by plant
 router.get('/plant/sum', completestock.findTotalPlantwise);
 
+// retrieve top 20 material values
+router.get('/top20', completestock.findTop20)
+
 module.exports = router;

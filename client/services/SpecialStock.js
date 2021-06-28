@@ -5,7 +5,7 @@ const getAll = () => {
 };
 
 const getByCode = (matcode) => {
-	return http.get(`/specialstock/matcode/:${matcode}`);
+	return http.get(`/specialstock/matcode/${matcode}`);
 };
 
 const getPlantSum = () => {

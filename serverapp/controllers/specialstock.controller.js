@@ -24,23 +24,6 @@ exports.findEach = (req,res) => {
 	.catch(err => res.status(404).json(err));
 }
 
-exports.findTotalPlantwise =  (req, res) => {
-    Specialstock.aggregate([{
-        $group: {
-            _id: "$plant-code",
-            plantTotal: {
-                $sum: "$stock-val"
-            }
-        }
-    }], (err, result) => {
-        if (err) {
-            console.log(err)
-            return;
-        }
-        res.json(result)
-    })
-}
-
 exports.findByCode = (req, res) => {
 	const matcode = req.params.code;
 
@@ -78,3 +61,76 @@ exports.findByAccount = (req,res) => {
 			});
 		});
 }
+
+exports.findTotalPlantwise =  (req, res) => {
+    Specialstock.aggregate([{
+        $group: {
+            _id: "$plant-code",
+            plantTotal: {
+                $sum: "$stock-val"
+            }
+        }
+    }], (err, result) => {
+        if (err) {
+            console.log(err)
+            return;
+        }
+        res.json(result)
+    })
+}
+
+exports.specialStockwise = (req,res) => {
+	
+		Specialstock.aggregate([{
+			$group: {
+				_id: "$stk-indicator",
+				specialStkTotal: {
+					$sum: "$stock-val"
+				}
+			}
+		}], (err, result) => {
+			if (err) {
+				console.log(err)
+				return;
+			}
+			res.json(result)
+		})
+	}
+
+exports.findTotalOrderwise =  (req, res) => {
+		Specialstock.aggregate([{
+			$group: {
+				_id: "$sales-document",
+				salesorderTotal: {
+					$sum: "$stock-val"
+				}
+			}
+		}], (err, result) => {
+			if (err) {
+				console.log(err)
+				return;
+			}
+			res.json(result)
+		})
+	}
+
+	exports.findTotalWbswise =  (req, res) => {
+		Specialstock.aggregate([{
+			$group: {
+				_id: "$wbs-element",
+				wbsTotal: {
+					$sum: "$stock-val"
+				}
+			}			
+		},
+		{$sort: {wbsTotal: -1}},
+		
+	], (err, result) => {
+			if (err) {
+				console.log(err)
+				return;
+			}
+			res.json(result)
+		})
+	}
+

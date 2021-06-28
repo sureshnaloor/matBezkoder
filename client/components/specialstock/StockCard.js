@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-export const StockCard = ({ specialstk }) => {
+export const StockCard = ({ specialstock }) => {
 	const classes = useStyles();
 	return (
 		<div>
@@ -39,7 +39,7 @@ export const StockCard = ({ specialstk }) => {
 					</TableHead>
 
 					<TableBody>
-						{specialstk.map((row) => (
+						{specialstock.map((row) => (
 							<TableRow key={row._id}>
 								<TableCell align='right'>{row['plant-code']}</TableCell>
 								<TableCell align='right'>{row['wbs-element']}</TableCell>

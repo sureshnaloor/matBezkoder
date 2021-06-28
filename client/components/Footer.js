@@ -17,14 +17,13 @@ const Footer = () => {
 							<Grid item xs={6} md={6}>
 								{' '}
 								<Typography variant="body2" color="secondary">
-									&copy; 2020 JAL International Co Ltd
+									&copy; 2021 JAL International Co Ltd
 								</Typography>
 							</Grid>
 							<Grid item xs={6} md={6}>
 								<Typography variant="caption" color="textPrimary">
-									Designed and developed by Suresh Naloor, data offline SAP.
-									<br />
-									Open source Stack used: MongoDB, React, Node JS
+									Designed and developed by JAL, data: offline SAP.						
+									
 								</Typography>
 							</Grid>
 						</Grid>

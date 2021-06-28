@@ -2,8 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import './style.css'
 
-// import { ToptenComp } from '../components/landingpage/ToptenComp';
-// import { CreditsComp } from '../components/landingpage/CreditsComp';
+import { ToptenComp } from '../components/landingpage/ToptenComp';
+import { CreditsComp } from '../components/landingpage/CreditsComp';
 import { ChartsComp } from '../components/landingpage/ChartsComp';
 
 const index = () => {
@@ -25,8 +25,20 @@ const index = () => {
 							align-items: center;
 						}
 					`}</style>
-					<h2> SAP MM Portal homepage</h2>
-					<h3> Welcome Guest! </h3>
+					<br /><h2 style={{fontFamily:'Lato', fontSize:'34px', fontWeight:'600', margin:'20px 20px 24px', lineHeight:'62px', letterSpacing:'2px'}}> SAP MM Portal homepage</h2>
+					<h4 style={{color: '#a11', fontSize:'20px'}}> This web app is designed for accessing SAP MM data through web for benefit of Site engineers/remote users.
+						<span id="next1" style={{color:'#4E443C', display:'inline-block', letterSpacing:'2px', lineHeight:'132px'}}>
+							
+							
+							This app uses stale/offline data, fed weekly upload of data from SAP. </span>
+						
+						<span id="next2" style={{display:'inline-block'}}>The data should therefore not be considered where real-time/online is required. </span>
+						
+					</h4>
+
+					
+					
+					
 					{/* <button onClick={logout}> Logout </button> */}
 				</div>
 
@@ -58,7 +70,7 @@ const index = () => {
 						}
 					`}</style>
 					<h2> The top 10 data here </h2>
-					{/* <ToptenComp /> */}
+					<ToptenComp />
 				</div>
 
 				<div className='pagefour' id='four'>
@@ -73,8 +85,8 @@ const index = () => {
 							align-items: center;
 						}
 					`}</style>
-					<h2> Boasting here! </h2>
-					{/* <CreditsComp /> */}
+					
+					<CreditsComp /> 
 				</div>
 
 				<div className='widget'>

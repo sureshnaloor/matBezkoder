@@ -103,3 +103,19 @@ exports.findTotalPlantwise = (req, res) => {
 		}
 	);
 };
+
+exports.findTop20 = async (req, res) => {
+	const limit = 20
+
+	try {
+		const data = await Completestock.find({ 'current-stkval': { $gt: 0.01 } })
+		.sort({ 'current-stkval': -1 }).limit(limit).exec()
+		res.status(200).json(data)
+		
+	} catch (error) {
+		res.status(500).json({error:`error happened ${error}`})
+		
+	}
+	
+};
+
